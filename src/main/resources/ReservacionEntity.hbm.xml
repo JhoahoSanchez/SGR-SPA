@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="epn.edu.ec.model.ReservacionEntity" table="reservacion" schema="sgr">
+        <id name="codReservacion">
+            <column name="cod_reservacion" sql-type="int"/>
+        </id>
+        <property name="idUsuario">
+            <column name="id_usuario" sql-type="int"/>
+        </property>
+        <property name="descripcion">
+            <column name="descripcion" sql-type="varchar(400)" length="400"/>
+        </property>
+        <property name="fecha">
+            <column name="fecha" sql-type="datetime"/>
+        </property>
+        <property name="tipo">
+            <column name="tipo" sql-type="int"/>
+        </property>
+        <property name="estado">
+            <column name="estado" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>
