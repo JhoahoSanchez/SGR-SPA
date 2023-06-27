@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="epn.edu.ec.model.CalificacionEntity" table="calificacion" schema="sgr">
+        <id name="codReservacion">
+            <column name="cod_reservacion" sql-type="int"/>
+        </id>
+        <property name="comentario">
+            <column name="comentario" sql-type="varchar(400)" length="400"/>
+        </property>
+        <property name="puntuacion">
+            <column name="puntuacion" sql-type="double" precision="-1"/>
+        </property>
+        <property name="estado">
+            <column name="estado" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>
