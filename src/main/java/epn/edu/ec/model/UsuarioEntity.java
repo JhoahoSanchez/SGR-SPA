@@ -14,6 +14,11 @@ public class UsuarioEntity {
         this.correo = correo;
         this.pwd = pwd;
     }
+    public UsuarioEntity(String correo, String pwd, int rol){
+        this.correo = correo;
+        this.pwd = pwd;
+        this.rol = rol;
+    }
 
     public int getId() {
         return id;

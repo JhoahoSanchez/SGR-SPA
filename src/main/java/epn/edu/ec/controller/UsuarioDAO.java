@@ -5,27 +5,25 @@ import epn.edu.ec.model.UsuarioEntity;
 public class UsuarioDAO {
 
     public UsuarioDAO(){}
-    public String crear(UsuarioEntity usuario) {
+    public boolean crear(UsuarioEntity usuario) {
         try {
-            Conexion.open();
             Conexion.session.beginTransaction();
             Conexion.session.save(usuario);
             Conexion.session.getTransaction().commit();
-            Conexion.close();
-            return "Usuario creado";
+            System.out.println("Usuario creado");
+            return true;
         } catch (Exception e) {
-            return "Error: Usuario no creado";
+            System.out.println("Error: Usuario no creado");
+            return false;
         }
     }
 
     public UsuarioEntity buscarUsuario(UsuarioEntity usuario) {
         try {
-            Conexion.open();
             Conexion.session.beginTransaction();
             String sql = String.format("FROM UsuarioEntity AS u WHERE u.correo = '%s' AND u.pwd = '%s'", usuario.getCorreo(), usuario.getPwd());
             UsuarioEntity user = (UsuarioEntity) Conexion.session.createQuery(sql).getSingleResult();
             Conexion.session.getTransaction().commit();
-            Conexion.close();
             return user;
         } catch (Exception e) {
             //e.printStackTrace();

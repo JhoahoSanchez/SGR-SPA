@@ -28,8 +28,4 @@ public class SesionTest {
         boolean actual = sesion.iniciar();
         assertEquals(expected, actual);
     }
-
-    @Test
-    public void cerrar() {
-    }
 }
