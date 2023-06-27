@@ -17,6 +17,22 @@ public class UsuarioDAO {
             return "Error: Usuario no creado";
         }
     }
+
+    public UsuarioEntity buscarUsuario(UsuarioEntity usuario) {
+        try {
+            Conexion.open();
+            Conexion.session.beginTransaction();
+            String sql = String.format("FROM UsuarioEntity AS u WHERE u.correo = '%s' AND u.pwd = '%s'", usuario.getCorreo(), usuario.getPwd());
+            UsuarioEntity user = (UsuarioEntity) Conexion.session.createQuery(sql).getSingleResult();
+            Conexion.session.getTransaction().commit();
+            Conexion.close();
+            return user;
+        } catch (Exception e) {
+            //e.printStackTrace();
+            return null;
+        }
+    }
+
 /*
     public String actualizar(int id, String correo) {
         try {
@@ -32,21 +48,6 @@ public class UsuarioDAO {
 
         } catch (Exception e) {
             return "Error: Correo no actualizado";
-        }
-    }
-
-    public ClienteEntity leer(int id) {
-        try {
-            Conexion.open();
-            Conexion.session.beginTransaction();
-            ClienteEntity cliente = Conexion.session.get(ClienteEntity.class, id);
-            Conexion.session.getTransaction().commit();
-            Conexion.close();
-            System.out.println("Cliente leida");
-            return cliente;
-        } catch (Exception e) {
-            System.out.println("Error: Cliente no leida");
-            return null;
         }
     }
 

@@ -8,6 +8,13 @@ public class UsuarioEntity {
     private String pwd;
     private int rol;
 
+    public UsuarioEntity(){}
+
+    public UsuarioEntity(String correo, String pwd){
+        this.correo = correo;
+        this.pwd = pwd;
+    }
+
     public int getId() {
         return id;
     }
@@ -51,5 +58,15 @@ public class UsuarioEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, correo, pwd, rol);
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioEntity{" +
+                "id=" + id +
+                ", correo='" + correo + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", rol=" + rol +
+                '}';
     }
 }

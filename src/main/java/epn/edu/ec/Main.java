@@ -7,11 +7,9 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hola mundo!");
         UsuarioEntity usuario = new UsuarioEntity();
-        usuario.setCorreo("mariohugo@gmail.com");
-        usuario.setPwd("causa32");
-        usuario.setRol(0);
+        usuario.setCorreo("cuquita@gmail.com");
+        usuario.setPwd("weawea58");
 
-        System.out.println(new UsuarioDAO().crear(usuario));
-
+        System.out.println(new UsuarioDAO().buscarUsuario(usuario));
     }
 }
