@@ -22,7 +22,6 @@ public class ViewNotificacion {
 
         List<CalificacionEntity> calificaciones = calificacionDAO.leerCalificaciones();
         List<ReservacionEntity> reservaciones = reservacionDAO.leerReservaciones(idUsuario);
-        System.out.println(calificaciones.size());
 
         System.out.println(notificacion.mostrar(calificaciones, idUsuario));
         if(!notificacion.mostrar(calificaciones, idUsuario).equals("\tReservaciones pendientes de calificar\n")){
@@ -34,8 +33,8 @@ public class ViewNotificacion {
                 do {
                     System.out.print("Escoja el id de una reservacion a calificar: ");
                     respuesta = scanner.nextLine();
-                    System.out.println(respuesta);
-                    System.out.println(numerosReservacion);
+//                    System.out.println(respuesta);
+//                    System.out.println(numerosReservacion);
                     if (numerosReservacion.contains(Integer.parseInt(respuesta))) {
                         new ViewCalificacion().mostrarVistaCalificacion(Integer.parseInt(respuesta),idUsuario,sesion);
                     } else{

@@ -28,7 +28,6 @@ public class CalificacionDAO {
             calificacion.cambiarEstado(1);
             Conexion.session.update(calificacion);
             Conexion.session.getTransaction().commit();
-            System.out.println("Exito al calificar la reserva");
         } catch (Exception e) {
             System.out.println(e);
         }

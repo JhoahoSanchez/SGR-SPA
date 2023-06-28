@@ -1,6 +1,8 @@
 package epn.edu.ec.view;
 
+import epn.edu.ec.controller.UsuarioDAO;
 import epn.edu.ec.model.Sesion;
+import epn.edu.ec.model.UsuarioEntity;
 
 import java.util.Scanner;
 
@@ -27,7 +29,9 @@ public class ViewPrincipal {
                     break;
                 case 2:
                     //Notificaciones
-                    new ViewNotificacion().mostrarVistaNotificacion(sesion.getUsuario().getId(),sesion);
+                    UsuarioDAO usuarioDAO = new UsuarioDAO();
+                    UsuarioEntity usuario = usuarioDAO.buscarUsuario(sesion.getUsuario());
+                    new ViewNotificacion().mostrarVistaNotificacion(usuario.getId(),sesion);
                     break;
                 case 3:
                     sesion.cerrar();

@@ -12,7 +12,7 @@ public class Notificacion {
             for (int i = 0; i < calificaciones.size(); i++) {
                 if (!calificaciones.get(i).comprobarEstado()) {
                     ReservacionEntity reservacion = reservacionDAO.leerReservacion(calificaciones.get(i).getCodReservacion(),idUsuario);
-                    if(reservacion.getEstado() == 1){
+                    if(reservacion.getEstado() == 1 && reservacion!=null){
                         resultado += "La reservacion con id: " + reservacion.getCodReservacion()+ " atendida el dia: " + reservacion.getFecha()
                                 + " con tratamiento: " + reservacion.getTipo() + "\n";
                     }
