@@ -11,6 +11,17 @@ public class ReservacionEntity {
     private int tipo;
     private int estado;
 
+    public ReservacionEntity() {
+    }
+
+    public ReservacionEntity(int idUsuario, String descripcion, Timestamp fecha, int tipo, int estado) {
+        this.idUsuario = idUsuario;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.tipo = tipo;
+        this.estado = estado;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -57,6 +68,18 @@ public class ReservacionEntity {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservacion {" +
+                "idUsuario=" + idUsuario +
+                ", codReservacion=" + codReservacion +
+                ", descripcion='" + descripcion + '\'' +
+                ", fecha=" + fecha +
+                ", tipo=" + tipo +
+                ", estado=" + estado +
+                "}\n";
     }
 
     @Override

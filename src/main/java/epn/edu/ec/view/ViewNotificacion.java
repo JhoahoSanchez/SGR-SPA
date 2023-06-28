@@ -2,6 +2,7 @@ package epn.edu.ec.view;
 
 import epn.edu.ec.controller.CalificacionDAO;
 import epn.edu.ec.controller.ReservacionDAO;
+import epn.edu.ec.controller.Scaner;
 import epn.edu.ec.model.CalificacionEntity;
 import epn.edu.ec.model.Notificacion;
 import epn.edu.ec.model.ReservacionEntity;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ViewNotificacion {
-    private Scanner scanner = new Scanner(System.in);
     private String respuesta = "";
 
     public void mostrarVistaNotificacion(int idUsuario, Sesion sesion) {
@@ -36,7 +36,7 @@ public class ViewNotificacion {
             if (numCalificados != 0) {
                 do {
                     System.out.print("Escoja el id de una reservacion a calificar: ");
-                    respuesta = scanner.nextLine();
+                    respuesta = Scaner.leerEntrada();
 //                    System.out.println(respuesta);
 //                    System.out.println(numerosReservacion);
                     if (numerosReservacion.contains(Integer.parseInt(respuesta))) {

@@ -1,5 +1,6 @@
 package epn.edu.ec.view;
 
+import epn.edu.ec.controller.Scaner;
 import epn.edu.ec.controller.UsuarioDAO;
 import epn.edu.ec.model.Sesion;
 import epn.edu.ec.model.UsuarioEntity;
@@ -8,12 +9,9 @@ import epn.edu.ec.model.ValidacionFormato;
 import java.util.Scanner;
 
 public class ViewInicio {
-
-    private Scanner scanner;
     private Sesion sesion;
 
     public void displayView() {
-        scanner = new Scanner(System.in);
         boolean log = false;
         int op = -1;
         do {
@@ -22,7 +20,7 @@ public class ViewInicio {
             System.out.println("1.\tIniciar Sesion.");
             System.out.println("2.\tRegistrarse.");
             System.out.println("3.\tSalir.\n");
-            op = Integer.parseInt(scanner.nextLine());
+            op = Integer.parseInt(Scaner.leerEntrada());
             switch (op) {
                 case 1:
                     log = displayLogin();
@@ -45,7 +43,6 @@ public class ViewInicio {
         if (log) {
             new ViewPrincipal(sesion).displayView();
         }
-        scanner.close();
     }
 
 
@@ -54,11 +51,11 @@ public class ViewInicio {
         int rol;
         System.out.println("Registrar un nuevo usuario");
         System.out.print("Ingrese su correo electrónico: ");
-        correo = scanner.nextLine();
+        correo = Scaner.leerEntrada();
         System.out.print("Ingrese su contraseña: ");
-        pwd = scanner.nextLine();
+        pwd = Scaner.leerEntrada();
         System.out.print("Ingrese su rol: ");
-        rol = Integer.parseInt(scanner.nextLine());
+        rol = Integer.parseInt(Scaner.leerEntrada());
 
         if (!ValidacionFormato.validarFormatoCorreo(correo) || !ValidacionFormato.validarLongitud(pwd, 15)) {
             System.out.println("Los datos ingresados no son validos, vuelva a intentar...");
@@ -71,10 +68,10 @@ public class ViewInicio {
         String correo, pwd;
         System.out.println("\tIngreso de credenciales");
         System.out.print("Ingrese su correo: ");
-        correo = scanner.nextLine();
+        correo = Scaner.leerEntrada();
 
         System.out.print("Ingrese su password: ");
-        pwd = scanner.nextLine();
+        pwd = Scaner.leerEntrada();
 
         this.sesion = new Sesion(correo, pwd);
         return this.sesion.iniciar();

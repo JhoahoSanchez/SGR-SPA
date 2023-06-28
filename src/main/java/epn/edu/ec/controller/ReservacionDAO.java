@@ -35,4 +35,28 @@ public class ReservacionDAO {
         }
         return reservacion;
     }
+
+    public String crearReservacion(ReservacionEntity reservacion) {
+        try {
+            Conexion.session.beginTransaction();
+            Conexion.session.save(reservacion);
+            Conexion.session.getTransaction().commit();
+            return "Reservación creada";
+        } catch (Exception e) {
+            return "Error: Reservación no creada";
+        }
+    }
+
+    public List<ReservacionEntity> verReservaciones(int idUsuario) {
+        try {
+            Conexion.session.beginTransaction();
+            String sql = String.format("FROM ReservacionEntity AS r WHERE r.idUsuario = '%s'", idUsuario);
+            List<ReservacionEntity> reservas = Conexion.session.createQuery(sql).getResultList();
+            Conexion.session.getTransaction().commit();
+            return reservas;
+        } catch (Exception e) {
+            //e.printStackTrace();
+            return null;
+        }
+    }
 }
