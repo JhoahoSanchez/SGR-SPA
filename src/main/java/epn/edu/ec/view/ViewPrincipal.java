@@ -27,6 +27,7 @@ public class ViewPrincipal {
                     break;
                 case 2:
                     //Notificaciones
+                    new ViewNotificacion().mostrarVistaNotificacion(sesion.getUsuario().getId(),sesion);
                     break;
                 case 3:
                     sesion.cerrar();

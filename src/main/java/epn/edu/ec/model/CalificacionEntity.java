@@ -52,4 +52,12 @@ public class CalificacionEntity {
     public int hashCode() {
         return Objects.hash(codReservacion, comentario, puntuacion, estado);
     }
+
+    public boolean comprobarEstado() {
+        return estado == 1;
+    }
+
+    public void cambiarEstado(int estado) {
+        this.estado = estado;
+    }
 }
