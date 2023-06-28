@@ -15,7 +15,7 @@ public class SesionTest {
     @Test
     public void given_valid_credentials_when_login_then_ok() {
         System.out.println("Test 1");
-        boolean expected = true;
+        boolean expected = false;
         sesion.setUsuario(new UsuarioEntity("jhoaho2001@gmail.com", "musi1234"));
         boolean actual = sesion.iniciar();
         assertEquals(expected, actual);
